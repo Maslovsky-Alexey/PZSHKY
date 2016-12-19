@@ -1,0 +1,17 @@
+﻿
+#dropZone.hover {   
+    border: dashed 2px green;
+}
+
+@keyframes animateBorder {
+  to {
+    outline-color: #3657ed;
+    box-shadow: 0 0 0 3px #ece326;
+  }
+}
+
+#dropZone.drop {
+    outline: 3px dashed #ece326;
+    box-shadow: 0 0 0 3px #3657ed;
+    animation: 0.5s animateBorder infinite;
+}

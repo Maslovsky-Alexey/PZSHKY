@@ -1,0 +1,42 @@
+﻿@model System.Object
+
+<link href="~/Content/ElectronicSchem.css" rel="stylesheet" />
+
+<script src="~/Scripts/schem/wireModel.js"></script>
+<script src="~/Scripts/schem/wiresUpdater.js"></script>
+
+<script src="~/Scripts/components/ComponentsModel.js"></script>
+<script src="~/Scripts/components/ComponentLoader.js"></script>
+<script src="~/Scripts/schem/propertiesParser.js"></script>
+<script src="~/Scripts/schem/schem.controller.js"></script>
+
+
+
+@{ 
+    bool editMode = ViewBag.editMode == null ? false : (bool)ViewBag.editMode;
+
+    <div id="schem" class="schem" ng-init="initial('schem-body', 'schem-properties', @("'" + editMode.ToString() + "'"), @(ViewBag.currentPostId == null ? -1 : ViewBag.currentPostId.ToString()), '#tag-list', '#comments-content')">
+
+        <div class="schem-menu">
+            <input class="form-control schem-menu-searcher" type="text" ng-model="pattern" ng-change="find(pattern)" />
+            <div class="schem-menu-list-elements scroll">
+                @if (editMode)
+                {
+                    <div class="shem-menu-element" ng-repeat="component in resultComponents" ng-click="addComponent(component, false)">{{component.name}}</div>
+                }
+                else
+                {
+                    <div class="shem-menu-element" ng-repeat="component in resultComponents">{{component.name}}</div>
+                }
+            </div>
+        </div>
+
+        <div id="schem-body" class="schem-body scroll">
+
+        </div>
+
+        <div id="schem-properties" class="schem-properties">
+
+        </div>
+    </div>
+}

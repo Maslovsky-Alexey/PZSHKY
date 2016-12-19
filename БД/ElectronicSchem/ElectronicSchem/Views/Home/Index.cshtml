@@ -1,0 +1,53 @@
+﻿@using ElectronicSchem.Properties
+@using ElectronicSchem.Controllers
+
+<link href="~/Content/home.css" rel="stylesheet" />
+<script src="~/Scripts/home/home.js"></script>
+
+<div class="row" ng-app="homeApp" ng-controller="homeController" ng-init="init(@("'" + ViewBag.Tag + "'"), @("'" + ViewBag.Category + "'"))">
+    <div class="col-sm-3 left">
+        <ul class="list-group categories">
+            <li href="#" class="list-group-item active">
+                Categories
+            </li>
+            @foreach (string category in ViewBag.Categories)
+            {
+                <li class="list-group-item category-item" ng-click="getPostsByCategory(@("'" + category + "'"))">@category</li>
+            }               
+        </ul>
+    </div>
+
+    <div class="col-sm-6 middle">
+        <div class="input-group posts-searcher">
+            <span class="input-group-btn sort-date">
+                <button class="btn btn-secondary" type="button" ng-click="sortPostByDate()">@(ViewBag.Languages == "Ru" ? ResourcesRu.Date : ResourcesEn.Date)</button>
+                <button class="btn btn-secondary" type="button" ng-click="sortPostByRating()">@(ViewBag.Languages == "Ru" ? ResourcesRu.Rating : ResourcesEn.Rating)</button>
+            </span>
+            <input class="form-control" placeholder="@(ViewBag.Languages == "Ru" ? ResourcesRu.Search : ResourcesEn.Search)" ng-keydown="search()" />
+        </div>
+        <div class="container">
+            <div class="post-line row" ng-repeat="post in posts">
+                <div class="col-sm-8">
+                    <a href="~/Posts?id={{post.id}}" class="title">{{post.title}}</a>
+                    <br />
+                    <div class="discription">{{post.discription}}</div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="username">{{post.username}}</div>
+                    <div class="date">{{post.date}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3 right">
+        <div class="tags-form">
+            <input class="form-control search-tags" placeholder="@(ViewBag.Languages == "Ru" ? ResourcesRu.SearchTags : ResourcesEn.SearchTags)" ng-keyup="searchInTags()"/>
+            <div class="tags-list">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="tag in tags" ng-click="tagSearcher(tag.value)">{{tag.value}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

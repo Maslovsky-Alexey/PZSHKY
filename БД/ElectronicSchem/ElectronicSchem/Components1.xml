@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<components>
+  <component name="ITransistor" url="http://res.cloudinary.com/alexeymaslovskicloud/image/upload/v1467142739/ITransistor_snwwm8.png" width="2" height="2">
+    <inputs>
+      <element x="2" y="0" color="red"/>
+      <element x="0" y="1" color="green"/>
+      <element x="2" y="2" color="yellow"/>
+    </inputs>
+    <properties>
+      <property type="enum" key="Type" defaultValue="BJT">
+        <item value="BJT" />
+        <item value="FET" />
+      </property>
+      <property type="string" key="Description" defaultValue="" maxLength="100"/>
+    </properties>
+  </component>
+  
+  <component name="IResistor" url="http://res.cloudinary.com/alexeymaslovskicloud/image/upload/v1467143222/IResistor_vnah6z.png" width="2" height="2">
+    <inputs>
+      <element x="0" y="1" color="red"/>
+      <element x="2" y="1" color="green"/>
+    </inputs>
+    <properties>
+      <property type="float" key="Resistance" defaultValue="2.0" />
+      <property type="string" key="Description" defaultValue="" maxLength="100"/>
+    </properties>
+  </component>
+
+  <component name="ICapacitor" url="http://res.cloudinary.com/alexeymaslovskicloud/image/upload/v1467143722/ICapacitor_bwsd1c.png" width="2" height="2">
+    <inputs>
+      <element x="0" y="1" color="red"/>
+      <element x="2" y="1" color="green"/>
+    </inputs>
+    <properties>
+      <property type="float" key="Frequency" defaultValue="5.2" minValue="2.0"/>
+      <property type="int" key="Capacity" defaultValue="200" minValue="150" />
+      <property type="string" key="Description" defaultValue="" maxLength="100"/>
+    </properties>
+  </component>
+
+  <component name="IDiod" url="http://res.cloudinary.com/alexeymaslovskicloud/image/upload/v1467588123/Diod_ohhujt.png" width="2" height="2">
+    <inputs>
+      <element x="0" y="1" color="red"/>
+      <element x="2" y="1" color="green"/>
+    </inputs>
+    <properties>
+      <property type="enum" key="Color" defaultValue="Red">
+        <item value="Red" />
+        <item value="Green" />
+        <item value="Blue" />
+        <item value="Yellow" />
+        <item value="White" />
+      </property>
+      <property type="string" key="Description" defaultValue="" maxLength="100"/>
+    </properties>
+  </component>
+
+  <component name="IPower source" url="http://res.cloudinary.com/alexeymaslovskicloud/image/upload/v1467590106/tok_mhbymj.png" width="2" height="2">
+    <inputs>
+      <element x="0" y="1" color="red"/>
+      <element x="2" y="1" color="green"/>
+    </inputs>
+    <properties>
+      <property type="float" key="Amperage" defaultValue="2.0" />
+      <property type="string" key="Description" defaultValue="" maxLength="100"/>
+    </properties>
+  </component>
+
+  <component name="IRelay" url="http://res.cloudinary.com/alexeymaslovskicloud/image/upload/v1467591559/Rele_c2tzuy.png" width="3" height="3">
+    <inputs>
+      <element x="1" y="0" color="red"/>
+      <element x="1" y="3" color="green"/>
+      <element x="3" y="0" color="blue"/>
+      <element x="2" y="0" color="yellow"/>
+      <element x="2" y="3" color="pink"/>
+    </inputs>
+    <properties>
+      <property type="float" key="Inductance" defaultValue="1.0" />
+      <property type="string" key="Description" defaultValue="" maxLength="100"/>
+    </properties>
+
+  </component>
+</components>
+
+<!--
+    <properties>
+      <property type="float" key="weight" defaultValue="15.0" minValue="0.1" maxValue="999.999"/>
+      <property type="int" key="countLed" defaultValue="3" maxValue="10" minValue="1"/>
+      <property type="enum" key="material" defaultValue="Wood">
+        <item value="Metal" />
+        <item value="Wood" />
+        <item value="Plastic" />
+      </property>
+      <property type="string" key="s" defaultValue="HelloWord" maxLength="100" minLength="2"/>
+      <property type="bool" key="weight" defaultValue="true"/>
+    </properties>
+    -->

@@ -1,0 +1,70 @@
+﻿@model ElectronicSchem.Models.ElectronicSchemModels.Posts.PostModel
+@using Microsoft.AspNet.Identity
+@using ElectronicSchem.Properties
+
+<link href="~/Content/PostStyles.css" rel="stylesheet" />
+<script src="~/Scripts/schem/comments.js"></script>
+<script src="~/Scripts/helpers/tagHelper.js"></script>
+
+<div id="post-view" class="container" ng-app="schemApp" ng-controller="schemController">
+
+    <div class="row">
+        <div class="col-md-12" id="tag-list">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="post-view-title">@Model.Title</div>
+        </div>
+        <div class="col-md-12 category">
+            <a href="/Home?category=@ViewBag.Category">@ViewBag.Category</a>
+        </div>
+        <div class="col-md-12">
+            <a class="post-view-nickname" href="/Manage/Index/@Model.UserID">@ElectronicSchem.Controllers.PostsController.GetUserNickNameByID(Model.UserID)</a>
+            <div class="post-view-datetime">@Model.DatePost</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("Schem")
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="post-view-disc">@Model.Discription</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="post-view-likes">
+                <i class="fa fa-thumbs-up" aria-hidden="true" ng-mousedown="like(@(ViewBag.currentPostId == null ? -1 : ViewBag.currentPostId.ToString()))"></i>
+                <div ng-bind="countLike" style="float: right;"></div>
+            </div>
+            <div class="post-view-dislikes">
+                <i class="fa fa-thumbs-down" aria-hidden="true" ng-mousedown="dislike(@(ViewBag.currentPostId == null ? -1 : ViewBag.currentPostId.ToString()))"></i>
+                <div ng-bind="countDislike" style="float: right;"></div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="row">
+        <div class="col-md-12">
+            @if (User.Identity.IsAuthenticated && !ViewBag.UserMute)
+            {
+                <textarea id="coment" class="form-control input-comments" placeholder="@(ViewBag.Languages == "Ru" ? ResourcesRu.Comment : ResourcesEn.Comment)" 
+                          onkeydown="schem.addComment(@ViewBag.currentPostId.ToString(), '#comments-content')"></textarea>
+            }
+
+            <div class="row">
+                <div class="col-md-12" id="comments-content">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

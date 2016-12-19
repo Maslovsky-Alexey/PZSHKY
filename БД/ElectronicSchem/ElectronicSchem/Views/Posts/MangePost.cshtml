@@ -1,0 +1,87 @@
+﻿@model ElectronicSchem.Models.ElectronicSchemModels.Posts.PostModel
+@using ElectronicSchem.Properties
+@using ElectronicSchem.Models.ElectronicSchemModels.Posts
+@{
+    ViewBag.Title = "MangePost";
+
+}
+
+<link href="~/Content/PostStyles.css" rel="stylesheet" />
+
+<script src="~/Scripts/helpers/tagHelper.js"></script>
+<script src="~/Scripts/schem/comments.js"></script>
+
+
+<div id="post-view" class="container" ng-app="schemApp" ng-controller="schemController">
+
+    <div class="row">
+        <div class="col-md-12" id="tags-containr">
+            <div class="row">
+                <div class="col-md-12" id="tag-list">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <input class="form-control post post-manage-tags" type="text" id="tag-input" ng-keydown="addTag('#tag-list')" 
+                           ng-keyup="autoTag('#list-tags-compile')"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="list-tags-compile" class="col-md-12">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <select id="category" class="form-control">
+                @foreach (string category in ViewBag.Categories)
+                {
+                    <option id="@category">@category</option>
+                }
+            </select>
+
+            <script>
+                $('#category').val('@(ViewBag.CurCategory)');
+            </script>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control post post-manage-title", placeholder = (ViewBag.Languages == "Ru" ? ResourcesRu.Title : ResourcesEn.Title), id="title" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Partial("Schem")
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @Html.TextAreaFor(x => x.Discription, new { @class = "form-control post post-manage-discription", placeholder = (ViewBag.Languages == "Ru" ? ResourcesRu.Discription : ResourcesEn.Discription), id="discription" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @{
+                if (ViewBag.currentPostId != null)
+                {
+                    <button class="form-control post post-manage-button-save" ng-click="savePost('#title', '#discription', '#tag-list', @((int)ViewBag.currentPostId), '#category')">@(ViewBag.Languages == "Ru" ? ResourcesRu.Save : ResourcesEn.Save)</button>
+                }
+                else
+                {
+                    <button class="form-control post post-manage-button-save" ng-click="newPost('#title', '#discription', '#tag-list', '#category')">@(ViewBag.Languages == "Ru" ? ResourcesRu.Post : ResourcesEn.Post)</button>
+                }
+            }
+        </div>
+    </div>
+
+</div>

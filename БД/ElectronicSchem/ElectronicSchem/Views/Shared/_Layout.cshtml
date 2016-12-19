@@ -1,0 +1,71 @@
+﻿@using ElectronicSchem.Properties
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <link id="sWhite" href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-sanitize.min.js"></script>
+
+    <script src="~/Scripts/konva.min.js"></script>
+    <script src="~/Scripts/dictionary.js"></script>
+
+    <script src="~/Scripts/helpers/cloner.js"></script>
+    <script src="~/Scripts/helpers/konvaHelper.js"></script>
+    <script src="~/Scripts/helpers/htmlHelper.js"></script>
+    <script src="~/Scripts/Layout/languageChanger.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SchemFuck", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a class="btn btn-link" onclick="changeLanguage('Ru')">@(ViewBag.Languages == "Ru" ? ResourcesRu.Russian : ResourcesEn.Russian)</a></li>
+                    <li><a class="btn btn-link" onclick="changeLanguage('En')">@(ViewBag.Languages == "Ru" ? ResourcesRu.English : ResourcesEn.English)</a></li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+
+        <script>
+            console.debug('@ViewBag.Languages');
+        </script>
+        @if (ViewBag.isHome == null)
+        {
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - @(ViewBag.Languages == "Ru" ? ResourcesRu.Footer : ResourcesEn.Footer)</p>
+            </footer>
+        }
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

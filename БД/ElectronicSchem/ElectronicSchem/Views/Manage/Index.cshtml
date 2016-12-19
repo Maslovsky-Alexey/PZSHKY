@@ -1,0 +1,72 @@
+﻿@model ElectronicSchem.Models.IndexViewModel
+@using ElectronicSchem.Properties
+
+<link href="~/Content/imageLoaderStyle.css" rel="stylesheet" />
+<script src="~/Scripts/postsView/posts.js"></script>
+<script src="~/Scripts/helpers/tagHelper.js"></script>
+<script src="~/Scripts/helpers/medals.js"></script>
+
+<div class="container" ng-app="postsViewApp" ng-controller="postsController" ng-init="init(@("'" + @ViewBag.UserId + "'"), '.medals')">
+    <div class="row">
+
+        <div class="col-md-2">
+            <img src="@(Model.PhotoUrl)" class="photo" id="@((ViewBag.isGust && !ViewBag.Admin) || ViewBag.UserMute ? "" : "dropZone")">
+        </div>
+        
+        <div class="col-md-10">
+            <div class="row user-name-title">
+                @ViewBag.UserName
+            </div>
+            <div class="row medals">
+  
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @if (!ViewBag.isGust && !ViewBag.UserMute)
+            {
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle actions-user" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        @(ViewBag.Languages == "Ru" ? ResourcesRu.Actions : ResourcesEn.Actions)
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            @if (Model.HasPassword)
+                            {
+                                @Html.ActionLink((ViewBag.Languages == "Ru" ? ResourcesRu.SetPassword : ResourcesEn.SetPassword), "ChangePassword", new { @class = "link-menu" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink((ViewBag.Languages == "Ru" ? ResourcesRu.SetPassword : ResourcesEn.SetPassword), "SetPassword", new { @class = "link-menu" })
+                            }
+                        </li>
+                        <li>@Html.ActionLink((ViewBag.Languages == "Ru" ? ResourcesRu.LoginsManage : ResourcesEn.LoginsManage), "ManageLogins", new { @class = "link-menu" })</li>
+                        <li>@Html.ActionLink((ViewBag.Languages == "Ru" ? ResourcesRu.CreatePost : ResourcesEn.CreatePost), "MangePost", "Posts", new { @class = "link-menu" }, new { })</li>
+                        @if (ViewBag.isAdmin)
+                        {
+                            <li>@Html.ActionLink((ViewBag.Languages == "Ru" ? ResourcesRu.Users : ResourcesEn.Users), "ManageUsers", new { @class = "link-menu" })</li>
+                        }
+                    </ul>
+                </div>
+            }    
+            @if (ViewBag.Admin)
+            {
+                <input type="checkbox" ng-click="muteUser(@("'" + ViewBag.UserId + "'"))" @(ViewBag.UserMute ? "checked" : "") />   @("mute")
+            }
+        </div>
+    </div>  
+
+    @if (!ViewBag.isGust)
+    {
+        <h1>@(ViewBag.Languages == "Ru" ? ResourcesRu.YourPosts : ResourcesEn.YourPosts):</h1>
+    }
+    else
+    {
+        <h1>@(ViewBag.Languages == "Ru" ? ResourcesRu.HisPosts : ResourcesEn.HisPosts):</h1>
+    }
+
+    @Html.Partial("PostsManage")
+</div>
+<script src="~/Scripts/loadImage/dropLoader.js"></script>

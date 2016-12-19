@@ -1,0 +1,149 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.error{
+    font-size: 280px;
+    text-align: center;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.right-btn{
+    margin-left: 30px;
+}
+
+.photo{
+    width: 150px;
+    height: 175px;
+    margin-top: 10px;
+    border: 1px dotted #005858;
+    border-radius: 5px;
+    box-shadow: rgba(34, 48, 165, 0.06) 5px 5px;
+}
+
+.actions-user{
+    width: 150px;
+    margin-top: 10px;
+}
+
+.title{
+    color: black;
+    font-size: 30px;
+}
+
+.discription{
+    color: black;
+    letter-spacing: -0.5px; 
+}
+
+.post-line:first-of-type{
+    margin-top: 15px;
+}
+
+.post-line{    
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border: 1px solid rgba(5, 15, 101, 0.37);
+    border-bottom: 2px dashed rgba(5, 15, 101, 0.37);
+}
+
+.username{
+    color: #a81717;
+}
+
+.date{
+    color: black;
+}
+
+.manage-posts-btn{
+    color: black !important;
+    font-size: 20px !important;
+}
+
+.manage-posts-btn:hover{
+    color: #339c5d !important;
+    cursor:pointer !important;
+}
+
+.medals{
+
+}
+
+.item-medal{
+    float: left;
+    margin-top: 15px;
+    margin-left: -10px;
+}
+
+.img-medal{
+    width: 50px;
+    height: 50px;
+}
+
+.item-medal:hover:after{
+    content: attr(data-title);
+    position: absolute;
+    color: black;
+    border-radius: 7px;
+    background-color: rgb(193, 223, 176);
+    margin-top: 60px;
+    font-size: 16px;
+    border: 1px dashed rgba(9, 123, 38, 0.64);
+    box-shadow: rgba(0, 0, 0, 0.37) 2px 2px;
+}
+
+.link-btn{
+    margin-top: 8px;
+}
+
+.user-name-title{
+    font-size: 28px;
+    margin-top: 15px;    
+}
+
+.user-manage{
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border: 1px solid rgba(34, 48, 165, 0.06);
+}
+
+
+.user-name{
+    float: left;
+    font-size: 25px;
+
+}
+
+.user-name a{
+    color: #a81717;
+}
+
+.user-name a:hover{
+    color: #e14646;
+    text-decoration: none;
+}
+
+.mute{
+    float: right;
+    margin-left: 15px;
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.mute input{
+    height: 18px;
+    width: 18px;
+}

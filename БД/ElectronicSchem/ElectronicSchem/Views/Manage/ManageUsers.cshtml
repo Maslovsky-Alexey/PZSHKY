@@ -1,0 +1,25 @@
+﻿@using ElectronicSchem.Models
+
+@{
+    ViewBag.Title = "ManageUsers";
+}
+
+<script src="~/Scripts/postsView/posts.js"></script>
+
+<h2>ManageUsers</h2>
+
+<div class="container" ng-app="postsViewApp" ng-controller="postsController">
+    @foreach (ApplicationUser user in Model)
+    {
+        <div class="row user-manage">
+            <div class="user-name">
+                <a href="/Manage?id=@user.Id">@user.UserName</a>
+            </div>
+
+            <div class="mute">
+                <input type="checkbox" ng-click="muteUser(@("'" + user.Id + "'"))" @(user.isMuted ? "checked" : "") />   @("mute")
+            </div>
+        </div>
+
+    }
+</div>

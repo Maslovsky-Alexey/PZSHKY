@@ -1,0 +1,204 @@
+﻿.schem{
+    margin-top: 15px;
+    width: 100%;
+    height: 600px;
+    background: #a5a5a5;
+}
+
+.schem-menu{
+    float: left;
+    width: 20%;
+    height: 100%;
+    background-color: #3e3e3e;
+}
+
+.scroll{
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+}
+
+.scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); 
+}
+
+.schem-body{
+    float: left;
+    width: 60%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    
+    -webkit-touch-callout: none; 
+   -webkit-user-select: none;     
+   -moz-user-select: none;      
+   -ms-user-select: none;       
+    user-select: none; 
+}
+
+.schem-properties{
+    float: right;
+    width: 20%;
+    height: 100%;
+    background-color: #3e3e3e;
+}
+
+.schem-menu-searcher{
+    height: 5%;
+    border-radius: 0px;
+}
+
+.schem-menu-list-elements{
+    height: 95%;
+}
+
+.shem-menu-element{
+    color: white;
+    font-size: 18px;
+    text-align: center;   
+    padding-top: 5px;
+    border-bottom: 1px groove #a5a5a5;
+    cursor: cell;
+
+   -webkit-touch-callout: none; 
+   -webkit-user-select: none;     
+   -moz-user-select: none;      
+   -ms-user-select: none;       
+    user-select: none;  
+}
+
+.shem-menu-element:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+
+.just-padding {
+  padding: 15px;
+}
+
+.list-group.list-group-root {
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+  margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+  border-radius: 0;
+  border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+  padding-left: 30px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+  padding-left: 45px;
+}
+
+.left-menu{
+    float: left;
+    width: 30%;
+}
+
+.component{
+    position: absolute;
+}
+
+.schem-property{
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.schem-property-inline {
+    color: white;
+    font-size: 26px;
+    margin: 15px 12px 0px 17px;
+}
+
+.schem-property-inline:hover {
+    color: rgba(118, 187, 255, 0.84);
+    cursor: pointer;
+}
+
+.schem-property input{
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px dashed white;
+    width: 80%;
+    margin: 0% 10% 0% 10%;
+    border-radius: 3px;
+}
+
+.schem-property input:focus{
+    outline: none;
+    border: 1px dashed rgba(118, 187, 255, 0.84);
+}
+
+.schem-property select{
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px dashed white;
+    width: 80%;
+    margin: 0% 10% 0% 10%;
+    border-radius: 3px;
+}
+
+.schem-property select option{
+    color: white;
+    background-color: #3e3e3e;
+}
+
+.schem-property input[type="checkbox"]{
+    height: 20px;
+}
+
+.schem-property select:focus{
+    outline: none;
+    border: 1px dashed rgba(118, 187, 255, 0.84);
+}
+
+.schem-property .schem-properties-button{
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.schem-property .schem-properties-button:hover{
+    color: rgba(118, 187, 255, 0.84);
+}
+
+.schem-propeties-trash{
+    color: #674141;
+    font-size: 35px;
+    cursor: pointer;
+
+}
+
+.schem-propeties-trash:hover{
+    color: #bb6e6e;
+}
+
+
+#category{
+    margin-top: 15px;
+}
