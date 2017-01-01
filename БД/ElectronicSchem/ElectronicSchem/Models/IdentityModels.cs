@@ -5,6 +5,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
 using ElectronicSchem.Models;
+using System.Data.Entity.Infrastructure;
+using System.Text;
+using System.Xml;
 
 namespace ElectronicSchem.Models
 {
@@ -30,6 +33,14 @@ namespace ElectronicSchem.Models
         public ApplicationDbContext()
             : base("ElectronicSchecmDataBase", throwIfV1Schema: false)
         {
+             // namespace for the EdmxWriter class
+
+            
+                using (var writer = new XmlTextWriter(@"d:\Model.edmx", Encoding.Default))
+                {
+                    EdmxWriter.WriteEdmx(this, writer);
+                }
+            
         }
 
         public static ApplicationDbContext Create()

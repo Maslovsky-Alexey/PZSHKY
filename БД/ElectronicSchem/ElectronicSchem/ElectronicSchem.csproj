@@ -295,6 +295,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClassDiagram3.cd" />
     <None Include="Components1.xml">
       <SubType>Designer</SubType>
     </None>
